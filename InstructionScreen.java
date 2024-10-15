@@ -1,12 +1,53 @@
 import greenfoot.*;
 
 public class InstructionScreen extends World {
+    
+    int numScreen = 0;
+    Label instruction;
+    String[] screen;
+
     public InstructionScreen() {
         super(600, 400, 1);
 
-        Label intruction1 = new Label("Screen 1", 50);
-        addObject(intruction1, 300, 200);
+        createScreens();
 
+        instruction = new Label(screen[numScreen], 50);
+        addObject(instruction, 300, 200);
+
+        Button leftbutton = new leftButton(this::leftScreen);
+        addObject(leftbutton, 50, 300);
+
+        Button rightbutton = new rightButton(this::rightScreen);
+        addObject(rightbutton, 550, 300);
+
+    }
+
+    public void act() {
+        setScreen();
+    }
+
+    public void leftScreen() {
+        numScreen--;
+    }
+
+    public void rightScreen() {
+        numScreen++;
+    }
+
+    public void createScreens() {
+        screen = new String[4];
+
+        for (int i = 0 ; i < screen.length ; i ++) {
+            screen[i] = "Screen " + (i+1);
+        }
+    }
+
+    public void setScreen() {
+        if(numScreen < 0) {
+            Greenfoot.setWorld(new MenuScreen());
+        } else if(numScreen <= 3) {
+            instruction.setValue(screen[numScreen]);
+        }
     }
 
     
