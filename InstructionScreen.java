@@ -43,7 +43,11 @@ public class InstructionScreen extends World {
     }
 
     public void setScreen() {
-        instruction.setValue(screen[numScreen]);
+        if(numScreen < 0) {
+            Greenfoot.setWorld(new MenuScreen());
+        } else if(numScreen <= 3) {
+            instruction.setValue(screen[numScreen]);
+        }
     }
 
     
