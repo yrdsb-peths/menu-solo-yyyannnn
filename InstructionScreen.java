@@ -14,10 +14,10 @@ public class InstructionScreen extends World {
         instruction = new Label(screen[numScreen], 50);
         addObject(instruction, 300, 200);
 
-        Button leftbutton = new leftButton(this::leftScreen);
+        Button leftbutton = new LeftButton(this::leftScreen);
         addObject(leftbutton, 50, 300);
 
-        Button rightbutton = new rightButton(this::rightScreen);
+        Button rightbutton = new RightButton(this::rightScreen);
         addObject(rightbutton, 550, 300);
 
     }
