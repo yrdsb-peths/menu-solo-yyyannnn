@@ -1,9 +1,9 @@
 import greenfoot.*;
 
-public class selectButton extends Button {
+public class SelectButton extends Button {
     private Runnable action;
 
-    public selectButton (Runnable action) {
+    public SelectButton (Runnable action) {
         super(action);
 
         GreenfootImage image = new GreenfootImage("images/selectButton.png");
