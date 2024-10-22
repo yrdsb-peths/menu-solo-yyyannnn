@@ -9,7 +9,10 @@ public class HighScoreScreen extends World {
         super(600, 400, 1);
 
         Label highScorelabel = new Label("High Scores", 100);
-            addObject(highScorelabel, 300, 100); 
+        addObject(highScorelabel, 300, 100); 
+
+        Button leftbutton = new LeftButton(this::goBack);
+        addObject(leftbutton, 50, 300);
 
         map.put("Jesus", 100);
         map.put("Paul", 90);
@@ -18,14 +21,18 @@ public class HighScoreScreen extends World {
         displayScore();
     }
 
+    public void goBack() {
+        Greenfoot.setWorld(new MenuScreen());
+    }
+
     public void displayScore() {
         int y = 200;
 
         for (String key : map.keySet()) { 
             int value = map.get(key); 
 
-            Label label = new Label(key + ": " + value, 30);
-            addObject(label, 300, y); 
+            Label score = new Label(key + ": " + value, 30);
+            addObject(score, 300, y); 
 
             y += 50;
         }
